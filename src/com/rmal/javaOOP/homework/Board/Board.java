@@ -44,6 +44,7 @@ class Board {
                 shapes.remove(shape);
                 break;
             }
+            System.out.println("Shape has been removed!");
         }
     }
 
