@@ -32,6 +32,10 @@ class Point {
         this.y = y;
     }
 
+    public double getDistance(Point point){
+        return Math.sqrt(Math.pow(point.getX() - this.getX(), 2) + Math.pow(point.getY() - this.getY(), 2));
+    }
+
     @Override
     public String toString() {
         return "Point{" +

@@ -32,6 +32,7 @@ class Board {
         if (shapes.size() != 4 && shape.getArea() != 0) {
             shapes.add(shape);
             System.out.println(shape.toString() + " has been added to the board!");
+            System.out.println();
         } else if (shapes.size() == 4) {
             System.out.println("Board is occupied!!! Please, remove some elements! ");
         } else {
@@ -47,6 +48,7 @@ class Board {
             }
         }
         System.out.println(shape.toString() + " has been removed!");
+        System.out.println();
     }
 
     public double getSumArea(ArrayList<Shape> shapes) {

@@ -24,16 +24,15 @@ class Triangle extends Shape {
 
         @Override
         public double getPerimeter() {
-            return Math.sqrt(Math.pow(pointTwo.getX() - pointOne.getX(), 2) + Math.pow(pointTwo.getY() - pointOne.getY(), 2)) +
-                    Math.sqrt(Math.pow(pointThree.getX() - pointTwo.getX(), 2) + Math.pow(pointThree.getY() - pointTwo.getY(), 2)) +
-                    Math.sqrt(Math.pow(pointThree.getX() - pointOne.getX(), 2) + Math.pow(pointThree.getY() - pointOne.getY(), 2));
+            return pointOne.getDistance(pointTwo) + pointTwo.getDistance(pointThree) +
+                    pointThree.getDistance(pointOne);
         }
 
         @Override
         public double getArea() {
-            double a = Math.sqrt(Math.pow(pointTwo.getX() - pointOne.getX(), 2) + Math.pow(pointTwo.getY() - pointOne.getY(), 2));
-            double b = Math.sqrt(Math.pow(pointThree.getX() - pointTwo.getX(), 2) + Math.pow(pointThree.getY() - pointTwo.getY(), 2));
-            double c = Math.sqrt(Math.pow(pointThree.getX() - pointOne.getX(), 2) + Math.pow(pointThree.getY() - pointOne.getY(), 2));
+            double a = pointOne.getDistance(pointTwo);
+            double b = pointTwo.getDistance(pointThree);
+            double c = pointThree.getDistance(pointOne);
             double p = (a + b + c) / 2;
             if ((p - a) <= 0 || (p - b) <= 0 || (p - c) <= 0 || (a + b) < c) {
                 return 0;

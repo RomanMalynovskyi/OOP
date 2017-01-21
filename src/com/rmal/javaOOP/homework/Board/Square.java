@@ -5,7 +5,7 @@ package com.rmal.javaOOP.homework.Board;
         Shape), при этом они в качестве свойств должны содержать
         классы Point.*/
 
- class Square extends Shape {
+class Square extends Shape {
 
     private Point point = new Point();
     private Point pointOne = new Point(point.getX(), point.getY());
@@ -26,15 +26,15 @@ package com.rmal.javaOOP.homework.Board;
 
     @Override
     public double getPerimeter() {
-        return 4 * (Math.sqrt(Math.pow(pointTwo.getX() - pointOne.getX(), 2) + Math.pow(pointTwo.getY() - pointOne.getY(), 2)));
+        return 4 * (pointOne.getDistance(pointTwo));
     }
 
     @Override
     public double getArea() {
-        double a = Math.sqrt(Math.pow(pointTwo.getX() - pointOne.getX(), 2) + Math.pow(pointTwo.getY() - pointOne.getY(), 2));
-        double b = Math.sqrt(Math.pow(pointThree.getX() - pointTwo.getX(), 2) + Math.pow(pointThree.getY() - pointTwo.getY(), 2));
-        double c = Math.sqrt(Math.pow(pointFour.getX() - pointThree.getX(), 2) + Math.pow(pointFour.getY() - pointThree.getY(), 2));
-        double d = Math.sqrt(Math.pow(pointFour.getX() - pointOne.getX(), 2) + Math.pow(pointFour.getY() - pointOne.getY(), 2));
+        double a = pointOne.getDistance(pointTwo);
+        double b = pointTwo.getDistance(pointThree);
+        double c = pointThree.getDistance(pointFour);
+        double d = pointFour.getDistance(pointOne);
         if (a == b && b == c && c == d && d == a) {
             return Math.pow(a, 2);
         } else {
