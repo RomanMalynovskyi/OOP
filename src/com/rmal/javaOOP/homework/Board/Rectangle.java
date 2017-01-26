@@ -7,11 +7,10 @@ package com.rmal.javaOOP.homework.Board;
 
 class Rectangle extends Shape {
 
-    private Point point = new Point();
-    private Point pointOne = new Point(point.getX(), point.getY());
-    private Point pointTwo = new Point(point.getX(), point.getY());
-    private Point pointThree = new Point(point.getX(), point.getY());
-    private Point pointFour = new Point(point.getX(), point.getY());
+    private Point pointOne;
+    private Point pointTwo;
+    private Point pointThree;
+    private Point pointFour;
 
     public Rectangle(Point pointOne, Point pointTwo, Point pointThree, Point pointFour) {
         this.pointOne = pointOne;
@@ -43,6 +42,29 @@ class Rectangle extends Shape {
         } else {
             return Math.sqrt((p - a) * (p - b) * (p - c) * (p - d));
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        if (this.pointOne.getX() != rectangle.pointOne.getX() || this.pointOne.getY() != rectangle.pointOne.getY())
+            return false;
+        if (this.pointTwo.getX() != rectangle.pointTwo.getX() || this.pointTwo.getY() != rectangle.pointTwo.getY())
+            return false;
+        if (this.pointThree.getX() != rectangle.pointThree.getX() || this.pointThree.getY() != rectangle.pointThree.getY())
+            return false;
+        return (this.pointFour.getX() == rectangle.pointFour.getX() && this.pointFour.getY() == rectangle.pointFour.getY());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = pointOne.hashCode();
+        result = 31 * result + pointTwo.hashCode();
+        result = 31 * result + pointThree.hashCode();
+        result = 31 * result + pointFour.hashCode();
+        return result;
     }
 
     @Override

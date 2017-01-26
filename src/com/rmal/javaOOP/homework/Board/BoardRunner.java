@@ -31,7 +31,8 @@ public class BoardRunner {
 
         //Remove element
         board.removeShapeFromBoard(square1);
-
+        board.removeShapeFromBoard(rectangle1);
+        board.removeShapeFromBoard(square1);
         // Show the board state
         System.out.println(board);
     }

@@ -7,11 +7,10 @@ package com.rmal.javaOOP.homework.Board;
 
 class Square extends Shape {
 
-    private Point point = new Point();
-    private Point pointOne = new Point(point.getX(), point.getY());
-    private Point pointTwo = new Point(point.getX(), point.getY());
-    private Point pointThree = new Point(point.getX(), point.getY());
-    private Point pointFour = new Point(point.getX(), point.getY());
+    private Point pointOne;
+    private Point pointTwo;
+    private Point pointThree;
+    private Point pointFour;
 
     public Square(Point pointOne, Point pointTwo, Point pointThree, Point pointFour) {
         this.pointOne = pointOne;
@@ -40,6 +39,29 @@ class Square extends Shape {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Square square = (Square) o;
+        if (this.pointOne.getX() != square.pointOne.getX() || this.pointOne.getY() != square.pointOne.getY())
+            return false;
+        if (this.pointTwo.getX() != square.pointTwo.getX() || this.pointTwo.getY() != square.pointTwo.getY())
+            return false;
+        if (this.pointThree.getX() != square.pointThree.getX() || this.pointThree.getY() != square.pointThree.getY())
+            return false;
+        return (this.pointFour.getX() == square.pointFour.getX() && this.pointFour.getY() == square.pointFour.getY());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = pointOne.hashCode();
+        result = 31 * result + pointTwo.hashCode();
+        result = 31 * result + pointThree.hashCode();
+        result = 31 * result + pointFour.hashCode();
+        return result;
     }
 
     @Override
